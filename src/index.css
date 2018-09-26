@@ -1,0 +1,221 @@
+:root {
+	--color-goldenrodYellow: #F2F6D0;
+	--color-oldLavender: #71697A;
+	--color-lightGray: #D0E1D4;
+
+	--boxShadow-drop: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+	--boxShadow-inner: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+
+	--fontFamily-lcdScreen: 'Aldrich', sans-serif;
+	--fontFamily-buttons: 'Archivo Black', sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: sans-serif;
+	background: var(--color-goldenrodYellow);
+}
+
+input:focus {
+  outline: none;
+}
+
+input::-webkit-slider-runnable-track {
+	background: var(--color-oldLavender);
+	-webkit-box-shadow: var(--boxShadow-inner);
+	        box-shadow: var(--boxShadow-inner);
+	border-radius: 5px;
+}
+
+input::-webkit-slider-thumb {
+	width: 20px;
+	height: 18px;
+	border-radius: 5px;
+	background: var(--color-goldenrodYellow);
+	-webkit-box-shadow: var(--boxShadow-drop);
+	        box-shadow: var(--boxShadow-drop);
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+input::-moz-range-track {
+	background: var(--color-oldLavender);
+	-webkit-box-shadow: var(--boxShadow-inner);
+	        box-shadow: var(--boxShadow-inner);
+	border-radius: 5px;
+	outline: none;
+}
+
+input::-moz-range-thumb {
+	width: 20px;
+	height: 18px;
+	border-radius: 5px;
+	background: var(--color-goldenrodYellow);
+	-webkit-box-shadow: var(--boxShadow-drop);
+	        box-shadow: var(--boxShadow-drop);
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+input::-moz-focus-outer {
+    border: 0;
+}
+
+input::-ms-track {
+	background: var(--color-oldLavender);
+	-webkit-box-shadow: var(--boxShadow-inner);
+	        box-shadow: var(--boxShadow-inner);
+	border-radius: 5px;
+}
+
+input::-ms-thumb {
+	width: 20px;
+	height: 18px;
+	border-radius: 5px;
+	background: var(--color-goldenrodYellow);
+	-webkit-box-shadow: var(--boxShadow-drop);
+	        box-shadow: var(--boxShadow-drop);
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+
+label {
+	font-family: var(--fontFamily-buttons);
+	font-size: 1em;
+	color: var(--color-oldLavender);
+}
+
+#container {
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-flow: column nowrap;
+	        flex-flow: column nowrap;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+
+#drum-machine-bg {
+	position: relative;
+	max-width: 450px;
+	min-height: 460px;
+	max-height: 650px;
+	background: var(--color-oldLavender);
+	border-radius: 14px;
+}
+
+#drum-machine {
+	position: absolute;
+	width: 95%;
+	height: 95%;
+	background: var(--color-lightGray);
+	border-radius: 13px;
+	-webkit-box-shadow: var(--boxShdow-drop);
+	        box-shadow: var(--boxShdow-drop);
+}
+
+#display {
+	position: relative;
+	width: 200px;
+	height: 100px;
+	margin-top: 1em;
+	background: var(--color-oldLavender);
+	border-radius: 5px;
+	-webkit-box-shadow: var(--boxShadow-inner);
+	        box-shadow: var(--boxShadow-inner);
+	font-family: var(--fontFamily-lcdScreen);
+	font-size: 1.2em;
+	color: var(--color-goldenrodYellow);
+}
+
+#battery-icon {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+#sound-bank, #current-pad {
+	margin-left: 1em;
+}
+
+#sound-bank {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+#volume, #power, #bank {
+	-webkit-appearance: none;
+	margin: 0.5em 0.5em 0 0.5em;
+	outline: none;
+	border-radius: 5px;
+	height: 10px;
+}
+
+#volume {
+	width: 80px;
+}
+
+#power, #bank {
+	width: 40px;
+}
+
+.form-group {
+	margin-top: 0.5em;
+}
+
+.drum-pad {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 25%;
+	        flex: 1 0 25%;
+	height: 25%;
+  	margin: 0.5em; 
+	background: var(--color-goldenrodYellow);
+	-webkit-box-shadow: var(--boxShadow-drop);
+	        box-shadow: var(--boxShadow-drop);
+	font-family: var(--fontFamily-buttons);
+	font-size: 1.2em;
+	color: var(--color-oldLavender);
+	cursor: pointer;
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	outline: none;
+}
+
+.active {
+	-webkit-transform: scale(1.1);
+	    -ms-transform: scale(1.1);
+	        transform: scale(1.1);
+	border: 0.2em solid var(--color-oldLavender);
+}
+
+/* Media Queries */
+
+@media screen and (max-height: 460px) {
+	html, body {
+		height: auto;
+		margin: 2em 0 2em 0;
+	}
+}
