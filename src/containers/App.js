@@ -18,26 +18,14 @@ class App extends Component {
   handlePowerChange = (event) => this.setState({ power: event.target.value })
   handleBankChange = (event) => this.setState({ bank: event.target.value })
 
-  handleClicked = (event) => {
-    const current = event.target.getAttribute('id');
-    const audio = document.querySelector(`div.drum-pad audio[data-key='${event.target.getAttribute('data-key')}']`);
-    const pad = document.querySelector(`#${current}`);
-
-    if(this.state.power % 2 !== 0) {
-      pad.classList.add('active') 
-    }
-    audio.currentTime = 0;
-    audio.volume = this.state.volume;
-    audio.play();
-    this.setState({ currentPad: current });
-  }
-
-  handlePlaySound = (e) => {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const pad = document.querySelector(`div[data-key="${e.keyCode}"]`)
+  handlePlaySound = (e, status) => {
+    const current = e.target.getAttribute('id');
+    const audio = status ? document.querySelector(`audio[data-key="${e.keyCode}"]`) : 
+    document.querySelector(`div.drum-pad audio[data-key='${e.target.getAttribute('data-key')}']`);
+    const pad = status ? document.querySelector(`div[data-key="${e.keyCode}"]`) : 
+    document.querySelector(`#${current}`);
     if (!audio) return;
 
-    const current = pad.getAttribute('id');
     if(this.state.power % 2 !== 0) {
       pad.classList.add('active') 
     }
@@ -73,8 +61,8 @@ class App extends Component {
             <DrumMachinePad 
             keys={this.state.keys} 
             bank={this.state.bank}
-            clicked={this.handleClicked}
-            keyPress={this.handlePlaySound}
+            clicked={(e) => this.handlePlaySound(e, null)}
+            keyPress={(e) => this.handlePlaySound(e, 'keyPress')}
             current={this.state.currentPad}
             rmTransition={this.handleRemoveTransition} 
             power={this.state.power}/>
